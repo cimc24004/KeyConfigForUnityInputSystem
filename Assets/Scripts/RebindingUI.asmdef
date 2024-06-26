@@ -1,0 +1,17 @@
+{
+    "name": "RebindingUI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0e27b928aa4d07c46ac4346b2411cb62",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
