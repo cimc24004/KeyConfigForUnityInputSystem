@@ -188,7 +188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.1, y: 102}
+  m_AnchoredPosition: {x: -19.8, y: 101}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3775972914746224413
@@ -1352,6 +1352,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5218861493680904328}
     m_Modifications:
     - target: {fileID: 4686264237318740710, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: key_config_ui
+      value: 
+      objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 4686264237318740710, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: targetControlScheme
       value: Gamepad
       objectReference: {fileID: 0}
@@ -1437,11 +1441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8107759643094777767, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 286
+      value: 52.4
       objectReference: {fileID: 0}
     - target: {fileID: 8107759643094777767, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -307
+      value: -435
       objectReference: {fileID: 0}
     - target: {fileID: 8107759643094777767, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1486,7 +1490,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS Left
+      value: D-Pad Left
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
@@ -2052,7 +2056,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS Down
+      value: D-Pad Down
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
@@ -2242,7 +2246,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS Up
+      value: D-Pad Up
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
@@ -2803,6 +2807,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3653200980285825502}
     m_Modifications:
     - target: {fileID: 4686264237318740710, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: key_config_ui
+      value: 
+      objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 4686264237318740710, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: targetControlScheme
       value: Keyboard&Mouse
       objectReference: {fileID: 0}
@@ -3337,7 +3345,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS Right
+      value: D-Pad Right
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
