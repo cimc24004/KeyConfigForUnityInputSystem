@@ -6,17 +6,19 @@ using UnityEngine.InputSystem.Samples.RebindUI;
 public class EachRebindSetting : MonoBehaviour
 {
     private RebindActionUI rebind_action_ui;
-    public KeyConfigController key_config_controller;
+    public KeyConfigUI key_config_ui;
+    private PlayerInput player_input;
+    private bool display_once;
     // Start is called before the first frame update
     void Start()
     {
         rebind_action_ui = this.gameObject.GetComponent<RebindActionUI>();
+        //key_config_ui.Display.AddListener(rebind_action_ui.CancelOperation());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
     public void OnRebindStart(RebindActionUI rebind_action_ui, InputActionRebindingExtensions.RebindingOperation operation)
     {

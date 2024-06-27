@@ -255,7 +255,10 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 PerformInteractiveRebind(action, bindingIndex);
             }
         }
-
+        public void CancelOperation()
+        {
+            m_RebindOperation?.Cancel();
+        }
         private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false)
         {
             m_RebindOperation?.Cancel(); // Will null out m_RebindOperation.
@@ -272,6 +275,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 .OnCancel(
                     operation =>
                     {
+                        Debug.Log("Canceleeeeedddd");
                         m_RebindStopEvent?.Invoke(this, operation);
                         m_RebindOverlay?.SetActive(false);
                         UpdateBindingDisplay();
@@ -294,7 +298,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                                 PerformInteractiveRebind(action, nextBindingIndex, true);
                         }
                     });
-
             // If it's a part binding, show the name of the part in the UI.
             var partName = default(string);
             if (action.bindings[bindingIndex].isPartOfComposite)
@@ -302,15 +305,16 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             // Bring up rebind overlay, if we have one.
 
-            if (m_RebindText != null)
-            {
-                //m_RebindText.text = PleasePressAnyKeyMessage;
-            }
+            //if (m_RebindText != null)
+            //{
+            //    m_RebindText.text = PleasePressAnyKeyMessage;
+            //}
 
             // If we have no rebind overlay and no callback but we have a binding text label,
             // temporarily set the binding text label to "<Waiting>".
             if (m_RebindOverlay == null && m_RebindText == null && m_RebindStartEvent == null && m_BindingText != null)
                 //m_RebindText.text = PleasePressAnyKeyMessage;
+                m_RebindOverlay.SetActive(true);
             // Give listeners a chance to act on the rebind starting.
             m_RebindStartEvent?.Invoke(this, m_RebindOperation);
 
