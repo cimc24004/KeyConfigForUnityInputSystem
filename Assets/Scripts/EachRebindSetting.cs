@@ -29,7 +29,16 @@ public class EachRebindSetting : MonoBehaviour
         Debug.Log("RebindStoppp");
         if(_rebind_action_ui != null)
         {
-            _rebind_action_ui.actionReference.action.Enable();
+            //_rebind_action_ui.actionReference.action.Enable();
+        }
+    }
+    public void OnRebindComplete(RebindActionUI _rebind_action_ui, InputActionRebindingExtensions.RebindingOperation operation)
+    {
+        Debug.Log("RebindCompleteeee");
+        if (_rebind_action_ui != null)
+        {
+            Debug.Log("OnComplete--------------------------Rebind");
+            key_config_ui.rebind_save_load.Save();
         }
     }
     public void OnUpdateUIEvent(RebindActionUI rebind_action_ui, string a, string b, string c)
@@ -40,7 +49,7 @@ public class EachRebindSetting : MonoBehaviour
     {
         if(rebind_action_ui != null)
         {
-            rebind_action_ui.actionReference.action.Disable();
+            //rebind_action_ui.actionReference.action.Disable();
         }
     }
 }

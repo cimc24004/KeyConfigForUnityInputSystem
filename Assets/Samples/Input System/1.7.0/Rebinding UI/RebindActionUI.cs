@@ -150,6 +150,15 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 return m_RebindStopEvent;
             }
         }
+        public InteractiveRebindEvent completeRebindEvent
+        {
+            get
+            {
+                if (m_RebindCompleteEvent == null)
+                    m_RebindCompleteEvent = new InteractiveRebindEvent();
+                return m_RebindCompleteEvent;
+            }
+        }
 
         /// <summary>
         /// When an interactive rebind is in progress, this is the rebind operation controller.
@@ -268,13 +277,14 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 m_RebindOperation?.Dispose();
                 m_RebindOperation = null;
             }
-
+            action.Disable();
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
                 //.WithCancelingThrough(InputC)
                 .OnCancel(
                     operation =>
                     {
+                        action.Enable();
                         Debug.Log("Canceleeeeedddd");
                         m_RebindStopEvent?.Invoke(this, operation);
                         m_RebindOverlay?.SetActive(false);
@@ -284,8 +294,9 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 .OnComplete(
                     operation =>
                     {
+                        action.Enable();
                         m_RebindOverlay?.SetActive(false);
-                        m_RebindStopEvent?.Invoke(this, operation);
+                        m_RebindCompleteEvent?.Invoke(this, operation);
                         UpdateBindingDisplay();
                         CleanUp();
 
@@ -412,7 +423,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Tooltip("Event that is triggered when an interactive rebind is complete or has been aborted.")]
         [SerializeField]
         private InteractiveRebindEvent m_RebindStopEvent;
-
+        [SerializeField]
+        private InteractiveRebindEvent m_RebindCompleteEvent;
         private InputActionRebindingExtensions.RebindingOperation m_RebindOperation;
 
         private static List<RebindActionUI> s_RebindActionUIs;
