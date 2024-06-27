@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Space [Keyboard]
+  m_Text: Space
 --- !u!1 &6680292650503350822
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Action: {fileID: -4641684001082932309, guid: 525f19ae0a68a024786f670050672a40, type: 3}
   m_BindingId: 790adc14-0d97-4ccf-be14-6a55575ce5b0
-  m_DisplayStringOptions: -1
+  m_DisplayStringOptions: 8
   m_BindingText: {fileID: 690190895482579582}
   WaitingMessage: 
   m_RebindOverlay: {fileID: 0}

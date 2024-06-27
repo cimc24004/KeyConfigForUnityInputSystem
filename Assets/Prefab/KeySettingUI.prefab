@@ -915,6 +915,7 @@ MonoBehaviour:
   DisplayNow: 0
   Controller: {fileID: 2770560041224805851}
   Key_and_Mouse: {fileID: 860013995910884724}
+  rebind_save_load: {fileID: 0}
 --- !u!114 &5124869511050566797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,7 +1486,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS/Left
+      value: LS Left
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
@@ -2051,7 +2052,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS/Down
+      value: LS Down
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
@@ -2241,7 +2242,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS/Up
+      value: LS Up
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
@@ -2810,19 +2811,47 @@ PrefabInstance:
       value: ResetButton_KeyMouse
       objectReference: {fileID: 0}
     - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8557591246450772653}
     - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5124869511050566797}
+    - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AllResetControlSchemeRebinding
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Save
       objectReference: {fileID: 0}
     - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: KeyConfigReset, RebindingUI
       objectReference: {fileID: 0}
     - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: RebindSaveLoad, Unity.InputSystem.RebindingUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660801181338767162, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8107759643094777767, guid: 4a6f663e23c501b4e88eae1a0d806ed5, type: 3}
@@ -3308,7 +3337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: LS/Right
+      value: LS Right
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
