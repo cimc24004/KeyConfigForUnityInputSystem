@@ -8,7 +8,7 @@ public class KeyConfigReset : MonoBehaviour
     public InputActionAsset input_action_asset;
     public string targetControlScheme;
     public KeyConfigUI key_config_ui;
-    //Reset機能
+    //すべてのスキーマのReset機能
     public void AllResetRebinding()
     {
         foreach (InputActionMap input_action_map in input_action_asset.actionMaps)

@@ -12,6 +12,7 @@ public class KeyConfigUI : MonoBehaviour
     public GameObject Controller;
     public GameObject Key_and_Mouse;
     public Dictionary<GameObject, RebindActionUI> obj_with_action_uis = new Dictionary<GameObject, RebindActionUI>();
+    [HideInInspector]
     public RebindSaveLoad rebind_save_load;
     // Start is called before the first frame update
     void Start()
