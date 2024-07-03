@@ -55,6 +55,24 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             }
         }
+        public TranslateOperationSettingByText TranslateOperationSettingsByText
+        {
+            get => m_Translate_operation_settings_by_text;
+            set
+            {
+                m_Translate_operation_settings_by_text = value;
+                KeyConfigTranslate();
+            }
+        }
+        public TranslateOperationSettingBySprite TranslateOperationSettingsBySprite
+        {
+            get => m_Translate_operation_settings_by_sprite;
+            set
+            {
+                m_Translate_operation_settings_by_sprite = value;
+                KeyConfigTranslate();
+            }
+        }
         public InputBinding.DisplayStringOptions displayStringOptions
         {
             get => m_DisplayStringOptions;
@@ -203,7 +221,11 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             return true;
         }
-
+        public void KeyConfigTranslate()
+        {
+            Debug.Log("------------------KeyConfigTranslate----------------------------");
+            Debug.Log("KeyConfigTranslate");
+        }
         /// <summary>
         /// Trigger a refresh of the currently displayed binding.
         /// </summary>
@@ -212,7 +234,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             var displayString = string.Empty;
             var deviceLayoutName = default(string);
             var controlPath = default(string);
-
+            Debug.Log("UpdateBindingDIsplayyyyyyyyyyyy");
             // Get display string from action.
             var action = m_Action?.action;
             if (action != null)
@@ -248,14 +270,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 action.RemoveBindingOverride(bindingIndex);
             }
             UpdateBindingDisplay();
-        }
-        public void RebindOperationCancelButtonsRegistration(List<string> cancel_buttons)
-        {
-            foreach(string cancel_button in cancel_buttons)
-            {
-                //InputActionRebindingExtensions.RebindingOperation operation;
-            }
-            //m_RebindOperation.WithCancelingThrough(cancel_button);
         }
         /// <summary>
         /// Initiate an interactive rebind that lets the player actuate a control to choose a new binding
@@ -442,7 +456,9 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [SerializeField]
         private List<string> m_CancelButtons;
         [SerializeField]
-        public Key[] m_CancelKeys;
+        private TranslateOperationSettingByText m_Translate_operation_settings_by_text;
+        [SerializeField]
+        private TranslateOperationSettingBySprite m_Translate_operation_settings_by_sprite;
         [Tooltip("Event that is triggered when an interactive rebind is being initiated. This can be used, for example, "
             + "to implement custom UI behavior while a rebind is in progress. It can also be used to further "
             + "customize the rebind.")]
@@ -454,6 +470,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         private InteractiveRebindEvent m_RebindStopEvent;
         [SerializeField]
         private InteractiveRebindEvent m_RebindCompleteEvent;
+
+
         private InputActionRebindingExtensions.RebindingOperation m_RebindOperation;
         private string before_rebinding_path = "";
         private static List<RebindActionUI> s_RebindActionUIs;
@@ -486,6 +504,24 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Serializable]
         public class InteractiveRebindEvent : UnityEvent<RebindActionUI, InputActionRebindingExtensions.RebindingOperation>
         {
+        }
+
+        //ã^éóDictionaryópÉNÉâÉXÇÃçÏê¨
+        [Serializable]
+        public class TranslateOperationSettingByText
+        {
+            [SerializeField]
+            private string key_name;
+            [SerializeField]
+            private string change_name;
+        }
+        [Serializable]
+        public class TranslateOperationSettingBySprite
+        {
+            [SerializeField]
+            private string key_name;
+            [SerializeField]
+            private Sprite sprite;
         }
     }
 }

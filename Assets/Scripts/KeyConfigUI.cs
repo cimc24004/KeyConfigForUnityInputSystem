@@ -22,6 +22,7 @@ public class KeyConfigUI : MonoBehaviour
         player_input = GameController.GetComponent<PlayerInput>();
         rebind_save_load = this.gameObject.GetComponent<RebindSaveLoad>();
         //‚·‚×‚Ä‚ÌRebindActionUI‚ğæ“¾‚µ‚ÄCancel‹@”\‚ğì‚é‚æB
+        Debug.Log(Controller);
         foreach (Transform child in Controller.transform)
         {
             RebindActionUI rebind_action_ui = child.gameObject.GetComponent<RebindActionUI>();

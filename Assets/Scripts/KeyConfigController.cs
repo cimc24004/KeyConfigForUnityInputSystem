@@ -6,7 +6,6 @@ public class KeyConfigController : MonoBehaviour
 {
     public PlayerInput player_input;
     //private RebindActionUI rebind_action_ui;
-    public Key m_CancelKeys;
     // Start is called before the first frame update
     void Start()
     {
