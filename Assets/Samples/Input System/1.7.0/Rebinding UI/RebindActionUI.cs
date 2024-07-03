@@ -294,14 +294,11 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             action.Disable();
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex);
 
-            //RebindOperationCancelButtonsRegistration(CancelButtons);
             before_rebinding_path = action.bindings[bindingIndex].overridePath;
-            Debug.Log(action.bindings[bindingIndex].overridePath);
             m_RebindOperation.OnCancel(
                 operation =>
                 {
                     action.Enable();
-                    Debug.Log("Canceleeeeedddd");
                     m_RebindStopEvent?.Invoke(this, operation);
                     m_RebindOverlay?.SetActive(false);
                     UpdateBindingDisplay();
@@ -310,12 +307,19 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             .OnComplete(
                 operation =>
                 {
-                    if (m_CancelButtons.Contains(action.bindings[bindingIndex].overridePath))
+                    if(m_CancelButtons != null)
                     {
-                        //WithThroughCancelingを使おうとしても複数個は使えないので、もしキャンセルしたいボタンが押されてしまったら、
-                        //もとのpathに強制上書きするようにする設定。そうすることで実質的にキャンセルしてるようにする。
-                        InputActionRebindingExtensions.ApplyBindingOverride(action, bindingIndex, new InputBinding { overridePath = before_rebinding_path });
+                        if (m_CancelButtons.Contains(action.bindings[bindingIndex].overridePath))
+                        {
+                            //WithThroughCancelingを使おうとしても複数個は指定できないので、もしボタンが押されなかったら、
+                            //もとのpathに強制上書きするようにする設定。そうすることで実質的にキャンセルしてるようにする。
+                            InputActionRebindingExtensions.ApplyBindingOverride(action, bindingIndex, new InputBinding { overridePath = before_rebinding_path });
+                            operation.Cancel();
+                            StartInteractiveRebind();
+                            return;
+                        }
                     }
+                    Debug.Log("actionPath: " + action.bindings[bindingIndex].overridePath);
                     action.Enable();
                     m_RebindOverlay?.SetActive(false);
                     m_RebindCompleteEvent?.Invoke(this, operation);
@@ -407,7 +411,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Tooltip("Reference to action that is to be rebound from the UI.")]
         [SerializeField]
         private InputActionReference m_Action;
-         private string PleasePressAnyKeyMessage = "PleasePressAnyKey";
 
         [SerializeField]
         private string m_BindingId;
@@ -438,6 +441,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         private UpdateBindingUIEvent m_UpdateBindingUIEvent;
         [SerializeField]
         private List<string> m_CancelButtons;
+        [SerializeField]
+        public Key[] m_CancelKeys;
         [Tooltip("Event that is triggered when an interactive rebind is being initiated. This can be used, for example, "
             + "to implement custom UI behavior while a rebind is in progress. It can also be used to further "
             + "customize the rebind.")]

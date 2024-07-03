@@ -32,12 +32,11 @@ public class EachRebindSetting : MonoBehaviour
             //_rebind_action_ui.actionReference.action.Enable();
         }
     }
-    public void OnRebindComplete(RebindActionUI _rebind_action_ui, InputActionRebindingExtensions.RebindingOperation operation)
+    public void OnRebindComplete(RebindActionUI _rebind_action_ui, InputActionRebindingExtensions.RebindingOperation operation, int id)
     {
         Debug.Log("RebindCompleteeee");
         if (_rebind_action_ui != null)
         {
-            Debug.Log("OnComplete--------------------------Rebind");
             key_config_ui.rebind_save_load.Save();
         }
     }

@@ -212,6 +212,9 @@ MonoBehaviour:
   - <Keyboard>/backspace
   - <Keyboard>/backquote
   - <Keyboard>/pause
+  - <Keyboard>/leftWindows
+  - <Keyboard>/leftMeta
+  m_CancelKeys: 
   m_RebindStartEvent:
     m_PersistentCalls:
       m_Calls:
