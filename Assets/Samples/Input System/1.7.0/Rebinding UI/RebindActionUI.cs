@@ -12,6 +12,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
     /// <summary>
     /// A reusable component with a self-contained UI for rebinding a single action.
     /// </summary>
+    /// 
     public class RebindActionUI : MonoBehaviour
     {
         private void Start()
@@ -45,7 +46,15 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 UpdateBindingDisplay();
             }
         }
+        public List<string> CancelButtons
+        {
+            get => m_CancelButtons;
+            set
+            {
+                m_CancelButtons = value;
 
+            }
+        }
         public InputBinding.DisplayStringOptions displayStringOptions
         {
             get => m_DisplayStringOptions;
@@ -159,7 +168,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 return m_RebindCompleteEvent;
             }
         }
-
         /// <summary>
         /// When an interactive rebind is in progress, this is the rebind operation controller.
         /// Otherwise, it is <c>null</c>.
@@ -213,9 +221,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 if (bindingIndex != -1)
                     displayString = action.GetBindingDisplayString(bindingIndex, out deviceLayoutName, out controlPath, displayStringOptions);
             }
-
             // Set on label (if any).
-            if (m_BindingText != null)
+            if (m_BindingText != null && displayString != "anyKey")
                 m_BindingText.text = displayString;
 
             // Give listeners a chance to configure UI in response.
@@ -242,7 +249,14 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             }
             UpdateBindingDisplay();
         }
-
+        public void RebindOperationCancelButtonsRegistration(List<string> cancel_buttons)
+        {
+            foreach(string cancel_button in cancel_buttons)
+            {
+                //InputActionRebindingExtensions.RebindingOperation operation;
+            }
+            //m_RebindOperation.WithCancelingThrough(cancel_button);
+        }
         /// <summary>
         /// Initiate an interactive rebind that lets the player actuate a control to choose a new binding
         /// for the action.
@@ -278,37 +292,46 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 m_RebindOperation = null;
             }
             action.Disable();
-            // Configure the rebind.
-            m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
-                //.WithCancelingThrough(InputC)
-                .OnCancel(
-                    operation =>
-                    {
-                        action.Enable();
-                        Debug.Log("Canceleeeeedddd");
-                        m_RebindStopEvent?.Invoke(this, operation);
-                        m_RebindOverlay?.SetActive(false);
-                        UpdateBindingDisplay();
-                        CleanUp();
-                    })
-                .OnComplete(
-                    operation =>
-                    {
-                        action.Enable();
-                        m_RebindOverlay?.SetActive(false);
-                        m_RebindCompleteEvent?.Invoke(this, operation);
-                        UpdateBindingDisplay();
-                        CleanUp();
+            m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex);
 
-                        // If there's more composite parts we should bind, initiate a rebind
-                        // for the next part.
-                        if (allCompositeParts)
-                        {
-                            var nextBindingIndex = bindingIndex + 1;
-                            if (nextBindingIndex < action.bindings.Count && action.bindings[nextBindingIndex].isPartOfComposite)
-                                PerformInteractiveRebind(action, nextBindingIndex, true);
-                        }
-                    });
+            //RebindOperationCancelButtonsRegistration(CancelButtons);
+            before_rebinding_path = action.bindings[bindingIndex].overridePath;
+            Debug.Log(action.bindings[bindingIndex].overridePath);
+            m_RebindOperation.OnCancel(
+                operation =>
+                {
+                    action.Enable();
+                    Debug.Log("Canceleeeeedddd");
+                    m_RebindStopEvent?.Invoke(this, operation);
+                    m_RebindOverlay?.SetActive(false);
+                    UpdateBindingDisplay();
+                    CleanUp();
+                })
+            .OnComplete(
+                operation =>
+                {
+                    if (m_CancelButtons.Contains(action.bindings[bindingIndex].overridePath))
+                    {
+                        //WithThroughCancelingを使おうとしても複数個は使えないので、もしキャンセルしたいボタンが押されてしまったら、
+                        //もとのpathに強制上書きするようにする設定。そうすることで実質的にキャンセルしてるようにする。
+                        InputActionRebindingExtensions.ApplyBindingOverride(action, bindingIndex, new InputBinding { overridePath = before_rebinding_path });
+                    }
+                    action.Enable();
+                    m_RebindOverlay?.SetActive(false);
+                    m_RebindCompleteEvent?.Invoke(this, operation);
+                    UpdateBindingDisplay();
+                    CleanUp();
+
+                    // If there's more composite parts we should bind, initiate a rebind
+                    // for the next part.
+                    if (allCompositeParts)
+                    {
+                        var nextBindingIndex = bindingIndex + 1;
+                        if (nextBindingIndex < action.bindings.Count && action.bindings[nextBindingIndex].isPartOfComposite)
+                            PerformInteractiveRebind(action, nextBindingIndex, true);
+                    }
+            });
+
             // If it's a part binding, show the name of the part in the UI.
             var partName = default(string);
             if (action.bindings[bindingIndex].isPartOfComposite)
@@ -413,7 +436,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             + "bindings in custom ways, e.g. using images instead of text.")]
         [SerializeField]
         private UpdateBindingUIEvent m_UpdateBindingUIEvent;
-
+        [SerializeField]
+        private List<string> m_CancelButtons;
         [Tooltip("Event that is triggered when an interactive rebind is being initiated. This can be used, for example, "
             + "to implement custom UI behavior while a rebind is in progress. It can also be used to further "
             + "customize the rebind.")]
@@ -426,7 +450,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [SerializeField]
         private InteractiveRebindEvent m_RebindCompleteEvent;
         private InputActionRebindingExtensions.RebindingOperation m_RebindOperation;
-
+        private string before_rebinding_path = "";
         private static List<RebindActionUI> s_RebindActionUIs;
 
         // We want the label for the action name to update in edit mode, too, so
