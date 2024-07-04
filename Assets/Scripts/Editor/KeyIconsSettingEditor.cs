@@ -37,7 +37,7 @@ public class KeyIconsSettingEditor : Editor
         if (_target.key_or_pad == KeyIconsSetting.GamePadOrKeyboard.gamepad)
         {
             _target.controller_setting.translate_mode_by_sprite = EditorGUILayout.Toggle("画像で指定。", _target.controller_setting.translate_mode_by_sprite);
-            
+
             if (_target.controller_setting.translate_mode_by_sprite == true)
             {
                 //Sprite Translateの場合
@@ -55,7 +55,7 @@ public class KeyIconsSettingEditor : Editor
         }
         else if(_target.key_or_pad == KeyIconsSetting.GamePadOrKeyboard.keyboard)
         {
-            _target.key_setting.translate_mode_by_sprite = EditorGUILayout.Toggle("Spriteで指定。", _target.key_setting.translate_mode_by_sprite);
+            _target.key_setting.translate_mode_by_sprite = EditorGUILayout.Toggle("画像で指定。", _target.key_setting.translate_mode_by_sprite);
             if (_target.key_setting.translate_mode_by_sprite == true)
             {
                 //Sprite Translateの場合

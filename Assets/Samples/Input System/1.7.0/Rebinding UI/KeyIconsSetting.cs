@@ -1,8 +1,10 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Samples.RebindUI;
 ////TODO: have updateBindingUIEvent receive a control path string, too (in addition to the device layout name)
@@ -40,20 +42,64 @@ public class KeyIconsSetting : MonoBehaviour
             return;
 
         var icon = default(Sprite);
-        if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "DualShockGamepad"))
-            icon = controller_setting.ps4.GetSprite(controlPath);
-        else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Gamepad"))
-            icon = controller_setting.xbox.GetSprite(controlPath);
-        else if(InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Keyboard"))
+        if (controller_setting.translate_mode_by_sprite)
         {
+            if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "DualShockGamepad"))
+                icon = controller_setting.ps4.GetSprite(controlPath);
+            else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Gamepad"))
+                icon = controller_setting.xbox.GetSprite(controlPath);
+            else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Keyboard"))
+            {
 
-            //icon = key_setting.translate_sprite_keys_list[Key]
+                //icon = key_setting.translate_sprite_keys_list[Key]
+            }
         }
+
+
         var textComponent = component.bindingText;
+        Debug.Log("OnUpdateBindingDisplayFromKeyIconsSetting.cs");
+
+        var bindingId = new Guid(component.bindingId);
+        InputAction action;
+        action = component.actionReference.action;
+        int bindingIndex = action.bindings.IndexOf(x => x.id == bindingId);
+        var overridePath = action.bindings[bindingIndex].overridePath;
 
         // Grab Image component.
         var imageGO = component.transform.Find("ActionBindingIcon");
         var imageComponent = imageGO.GetComponent<Image>();
+
+        //‚±‚±‚ÍKeyConfigText–|–ó‚ÌÝ’è‚ð‚·‚é‚Æ‚±‚ë‚Å‚·B
+        if (key_or_pad == KeyIconsSetting.GamePadOrKeyboard.gamepad)
+        {
+            if (!controller_setting.translate_mode_by_sprite)
+            {
+                KeyIconsSetting.translate_text_lists translate_text_list = controller_setting.translate_text_keys_list.Find(x => x.key_path == overridePath);
+                if (translate_text_list != null)
+                {
+                    textComponent.text = translate_text_list.key_name;
+                }
+            }
+
+        }
+        else if(key_or_pad == KeyIconsSetting.GamePadOrKeyboard.keyboard && !key_setting.translate_mode_by_sprite)
+        {
+            if (!key_setting.translate_mode_by_sprite)
+            {
+                KeyIconsSetting.translate_text_lists translate_text_list = key_setting.translate_text_keys_list.Find(x => x.key_path == overridePath);
+                if (translate_text_list != null)
+                {
+                    textComponent.text = translate_text_list.key_name;
+                }
+            }
+            else
+            {
+                KeyIconsSetting.translate_sprite_lists translate_sprite_keys_list = key_setting.translate_sprite_keys_list.Find(x => x.key_path == overridePath);
+                icon = translate_sprite_keys_list.key_sprite;
+            }
+
+        }
+
 
         if (icon != null)
         {
