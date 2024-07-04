@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,11 +20,9 @@ public class KeyIconsSetting : MonoBehaviour
         gamepad
     };
     public GamePadOrKeyboard key_or_pad;
-    public KeySetting key_setting;
+    public string key;
     public ControllerSetting controller_setting;
-
-
-
+    public KeySetting key_setting;
     protected void OnEnable()
     {
         // Hook into all updateBindingUIEvents on all RebindActionUI components in our hierarchy.
@@ -44,7 +44,11 @@ public class KeyIconsSetting : MonoBehaviour
             icon = controller_setting.ps4.GetSprite(controlPath);
         else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Gamepad"))
             icon = controller_setting.xbox.GetSprite(controlPath);
+        else if(InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Keyboard"))
+        {
 
+            //icon = key_setting.translate_sprite_keys_list[Key]
+        }
         var textComponent = component.bindingText;
 
         // Grab Image component.
@@ -119,12 +123,32 @@ public class KeyIconsSetting : MonoBehaviour
     [Serializable]
     public class KeySetting
     {
-        public string key;
+        public bool translate_mode_by_sprite;
+        [Header("key_pathにはキーのpathを。 key_nameには翻訳先文字を。")]
+        public List<translate_text_lists> translate_text_keys_list;
+        [Header("key_pathにはキーのpathを。 key_spriteには翻訳先画像を。")]
+        public List<translate_sprite_lists> translate_sprite_keys_list;
+    }
+    [Serializable]
+    public class translate_text_lists
+    {
+        public string key_path;
+        public string key_name;
+    }
+    [Serializable]
+    public class translate_sprite_lists
+    {
+        public string key_path;
+        public Sprite key_sprite;
+        //public void
     }
     [Serializable]
     public class ControllerSetting
     {
+        public bool translate_mode_by_sprite;
         public GamepadIcons xbox;
         public GamepadIcons ps4;
+        [Header("key_pathにはpathを。 key_nameには翻訳先を。")]
+        public List<translate_text_lists> translate_text_keys_list;
     }
 }

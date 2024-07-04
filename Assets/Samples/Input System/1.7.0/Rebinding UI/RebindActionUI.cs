@@ -55,24 +55,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             }
         }
-        public TranslateOperationSettingByText TranslateOperationSettingsByText
-        {
-            get => m_Translate_operation_settings_by_text;
-            set
-            {
-                m_Translate_operation_settings_by_text = value;
-                KeyConfigTranslate();
-            }
-        }
-        public TranslateOperationSettingBySprite TranslateOperationSettingsBySprite
-        {
-            get => m_Translate_operation_settings_by_sprite;
-            set
-            {
-                m_Translate_operation_settings_by_sprite = value;
-                KeyConfigTranslate();
-            }
-        }
+
         public InputBinding.DisplayStringOptions displayStringOptions
         {
             get => m_DisplayStringOptions;
@@ -221,11 +204,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             return true;
         }
-        public void KeyConfigTranslate()
-        {
-            Debug.Log("------------------KeyConfigTranslate----------------------------");
-            Debug.Log("KeyConfigTranslate");
-        }
+
         /// <summary>
         /// Trigger a refresh of the currently displayed binding.
         /// </summary>
@@ -455,10 +434,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         private UpdateBindingUIEvent m_UpdateBindingUIEvent;
         [SerializeField]
         private List<string> m_CancelButtons;
-        [SerializeField]
-        private TranslateOperationSettingByText m_Translate_operation_settings_by_text;
-        [SerializeField]
-        private TranslateOperationSettingBySprite m_Translate_operation_settings_by_sprite;
         [Tooltip("Event that is triggered when an interactive rebind is being initiated. This can be used, for example, "
             + "to implement custom UI behavior while a rebind is in progress. It can also be used to further "
             + "customize the rebind.")]
@@ -506,22 +481,5 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         {
         }
 
-        //ã^éóDictionaryópÉNÉâÉXÇÃçÏê¨
-        [Serializable]
-        public class TranslateOperationSettingByText
-        {
-            [SerializeField]
-            private string key_name;
-            [SerializeField]
-            private string change_name;
-        }
-        [Serializable]
-        public class TranslateOperationSettingBySprite
-        {
-            [SerializeField]
-            private string key_name;
-            [SerializeField]
-            private Sprite sprite;
-        }
     }
 }
