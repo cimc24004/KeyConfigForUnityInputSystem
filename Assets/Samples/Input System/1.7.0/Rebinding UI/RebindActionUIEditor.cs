@@ -26,6 +26,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindStopEventProperty = serializedObject.FindProperty("m_RebindStopEvent");
             m_RebindCompleteEventProperty = serializedObject.FindProperty("m_RebindCompleteEvent");
             m_CancelButtonsProperty = serializedObject.FindProperty("m_CancelButtons");
+            m_ActionBindingIconImageProperty = serializedObject.FindProperty("m_ActionBindingIconImage");
             m_DisplayStringOptionsProperty = serializedObject.FindProperty("m_DisplayStringOptions");
             RefreshBindingOptions();
         }
@@ -41,7 +42,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 EditorGUILayout.PropertyField(m_ActionProperty);
                 EditorGUILayout.Space();
                 EditorGUILayout.PropertyField(m_CancelButtonsProperty);
-                EditorGUILayout.Space(40);
+                EditorGUILayout.Space(20);
                 var newSelectedBinding = EditorGUILayout.Popup(m_BindingLabel, m_SelectedBindingOption, m_BindingOptions);
                 if (newSelectedBinding != m_SelectedBindingOption)
                 {
@@ -61,7 +62,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             EditorGUILayout.LabelField(m_UILabel, Styles.boldLabel);
             using (new EditorGUI.IndentLevelScope())
             {
-                //EditorGUILayout.PropertyField(m_ActionLabelProperty);
+                EditorGUILayout.PropertyField(m_ActionBindingIconImageProperty);
                 EditorGUILayout.PropertyField(m_BindingTextProperty);
                 EditorGUILayout.PropertyField(m_RebindOverlayProperty);
                 EditorGUILayout.PropertyField(m_RebindTextProperty);
@@ -162,6 +163,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         private SerializedProperty m_RebindStartEventProperty;
         private SerializedProperty m_RebindStopEventProperty;
         private SerializedProperty m_UpdateBindingUIEventProperty;
+        private SerializedProperty m_ActionBindingIconImageProperty;
         private SerializedProperty m_DisplayStringOptionsProperty;
         private SerializedProperty m_RebindCompleteEventProperty;
         private SerializedProperty m_CancelButtonsProperty;

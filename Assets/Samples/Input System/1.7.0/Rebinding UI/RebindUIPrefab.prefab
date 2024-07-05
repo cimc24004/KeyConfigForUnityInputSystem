@@ -114,7 +114,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 12.4, y: 0}
-  m_SizeDelta: {x: 25, y: 25}
+  m_SizeDelta: {x: 36.6, y: 32.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6371764969794471515
 CanvasRenderer:
@@ -285,6 +285,7 @@ MonoBehaviour:
   m_BindingId: 790adc14-0d97-4ccf-be14-6a55575ce5b0
   m_DisplayStringOptions: 8
   m_BindingText: {fileID: 690190895482579582}
+  m_ActionBindingIconImage: {fileID: 1912200785017279613}
   WaitingMessage: 
   m_RebindOverlay: {fileID: 0}
   m_RebindText: {fileID: 0}
@@ -500,7 +501,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 14, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 178.3, y: 46.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3573462795036708828
 CanvasRenderer:
@@ -530,8 +531,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

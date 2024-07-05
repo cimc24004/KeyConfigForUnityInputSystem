@@ -72,8 +72,7 @@ public class KeyIconsSetting : MonoBehaviour
         if (String.IsNullOrEmpty(overridePath)) overridePath = action.bindings[bindingIndex].path;
 
         // Grab Image component.
-        var imageGO = component.transform.Find("ActionBindingIcon");
-        var imageComponent = imageGO.GetComponent<Image>();
+        var imageComponent = component.ActionBindingIcon;
         //Ç±Ç±ÇÕKeyConfigTextñ|ñÛÇÃê›íËÇÇ∑ÇÈÇ∆Ç±ÇÎÇ≈Ç∑ÅB
         if (key_or_pad == KeyIconsSetting.GamePadOrKeyboard.gamepad)
         {

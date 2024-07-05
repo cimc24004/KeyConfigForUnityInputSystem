@@ -92,7 +92,15 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 UpdateBindingDisplay();
             }
         }
-
+        public Image ActionBindingIcon
+        {
+            get => m_ActionBindingIconImage;
+            set
+            {
+                m_ActionBindingIconImage = value;
+                UpdateBindingDisplay();
+            }
+        }
         /// <summary>
         /// Optional text component that receives a text prompt when waiting for a control to be actuated.
         /// </summary>
@@ -416,6 +424,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Tooltip("Text label that will receive the current, formatted binding string.")]
         [SerializeField]
         private Text m_BindingText;
+        [SerializeField]
+        private Image m_ActionBindingIconImage;
         [SerializeField]
         private string WaitingMessage;
         [Tooltip("Optional UI that will be shown while a rebind is in progress.")]
