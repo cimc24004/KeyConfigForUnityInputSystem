@@ -51,9 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "New action",
+                    "name": "aa",
                     "type": "Button",
-                    "id": "c2b145ab-9a55-4e4c-a44a-fb8a3ab6111d",
+                    "id": "3afee3b8-4a23-4c48-9b19-24a91effef1e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -272,12 +272,12 @@
                 },
                 {
                     "name": "",
-                    "id": "c9f28a1f-4bf4-4b35-8a63-4ac9c94f9fa8",
-                    "path": "<Keyboard>/ctrl",
+                    "id": "504b6c3a-80fe-448b-ad60-93ede322d691",
+                    "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "aa",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

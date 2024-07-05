@@ -59,7 +59,7 @@ public class KeyIconsSetting : MonoBehaviour
             else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Gamepad"))
                 icon = controller_setting.xbox.GetSprite(controlPath);
         }
-
+        Debug.Log("icon :" + icon);
 
         var textComponent = component.bindingText;
 

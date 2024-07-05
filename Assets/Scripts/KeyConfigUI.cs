@@ -12,7 +12,6 @@ public class KeyConfigUI : MonoBehaviour
     public GameObject Controller;
     public GameObject Key_and_Mouse;
     public Dictionary<GameObject, RebindActionUI> obj_with_action_uis = new Dictionary<GameObject, RebindActionUI>();
-    [HideInInspector]
     public RebindSaveLoad rebind_save_load;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,6 @@ public class KeyConfigUI : MonoBehaviour
         canvas_group = this.gameObject.GetComponent<CanvasGroup>();
         GameController = GameObject.FindWithTag("GameController");
         player_input = GameController.GetComponent<PlayerInput>();
-        rebind_save_load = this.gameObject.GetComponent<RebindSaveLoad>();
         //‚·‚×‚Ä‚ÌRebindActionUI‚ğæ“¾‚µ‚ÄCancel‹@”\‚ğì‚é‚æB
         Debug.Log(Controller);
         foreach (Transform child in Controller.transform)
@@ -33,7 +31,10 @@ public class KeyConfigUI : MonoBehaviour
             RebindActionUI rebind_action_ui = child.gameObject.GetComponent<RebindActionUI>();
             obj_with_action_uis.Add(child.gameObject, rebind_action_ui);
         }
-        rebind_save_load.Load();
+        if(rebind_save_load != null)
+        {
+            rebind_save_load.Load();
+        }
     }
 
     // Update is called once per frame

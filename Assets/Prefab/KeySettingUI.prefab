@@ -206,25 +206,25 @@ MonoBehaviour:
   controller_setting:
     translate_mode_by_sprite: 1
     xbox:
-      buttonSouth: {fileID: 21300000, guid: f609c9b3b1675f947a865ec558b5ad90, type: 3}
-      buttonNorth: {fileID: 21300000, guid: 17fd7d74524d4cc4ea612a100880d012, type: 3}
-      buttonEast: {fileID: 21300000, guid: cde7469096582e04897fae80dfc34fbe, type: 3}
-      buttonWest: {fileID: 21300000, guid: d08c52c09554ca8418a86627f4bd14e1, type: 3}
-      startButton: {fileID: 21300000, guid: 4273c283a5e145a468dc60af5dcb46e7, type: 3}
+      buttonSouth: {fileID: 21300040, guid: e35b1509688e6294cad1ada6c91b7693, type: 3}
+      buttonNorth: {fileID: 21300000, guid: e666b23924bb3c74690143d1f039621e, type: 3}
+      buttonEast: {fileID: 21300000, guid: 5a124c1bebc30c8488cf3be651b901bf, type: 3}
+      buttonWest: {fileID: 21300054, guid: fe9aa33e50412c242bd73e9324bc7922, type: 3}
+      startButton: {fileID: 21300000, guid: feece0f605aa99f44acd9e29bccd832f, type: 3}
       selectButton: {fileID: 0}
-      leftTrigger: {fileID: 0}
-      rightTrigger: {fileID: 0}
-      leftShoulder: {fileID: 0}
-      rightShoulder: {fileID: 0}
-      dpad: {fileID: 21300000, guid: bff5253ebc5a14f43b4bd8aa1d207855, type: 3}
-      dpadUp: {fileID: 0}
-      dpadDown: {fileID: 0}
-      dpadLeft: {fileID: 0}
-      dpadRight: {fileID: 0}
-      leftStick: {fileID: 21300000, guid: 7e177675a5fc16248b6e164ef7a7f2a6, type: 3}
-      rightStick: {fileID: 21300000, guid: 04f2711270cd5b64099d2ca2f99529de, type: 3}
-      leftStickPress: {fileID: 0}
-      rightStickPress: {fileID: 0}
+      leftTrigger: {fileID: 21300000, guid: 7fd05b081bb903d4ca9c2f1526f8a6cc, type: 3}
+      rightTrigger: {fileID: 21300000, guid: 4ba7e01b735f42d49a5bae9b3e734bca, type: 3}
+      leftShoulder: {fileID: 21300000, guid: cb637cfbdedaf454f85f738a680d70ff, type: 3}
+      rightShoulder: {fileID: 21300000, guid: 9bb95854ab3101349a8f7f1c2f4459da, type: 3}
+      dpad: {fileID: 21300000, guid: f0274faa5a4201b48ab5da6053bd76e8, type: 3}
+      dpadUp: {fileID: 21300000, guid: 10dc23e17db90854f811657cf4b2a565, type: 3}
+      dpadDown: {fileID: 21300000, guid: e60f617a2ba49e34f9f2c36ff78768fd, type: 3}
+      dpadLeft: {fileID: 21300000, guid: 34e0ef3c19ef1e748a5495e18a7cb716, type: 3}
+      dpadRight: {fileID: 21300000, guid: 0162faaabc9d80249b72cdf9774141bf, type: 3}
+      leftStick: {fileID: 21300000, guid: 7fd05b081bb903d4ca9c2f1526f8a6cc, type: 3}
+      rightStick: {fileID: 21300000, guid: 4ba7e01b735f42d49a5bae9b3e734bca, type: 3}
+      leftStickPress: {fileID: 21300000, guid: 8e6e7d0c6b709b4468fa7a923b7835a1, type: 3}
+      rightStickPress: {fileID: 21300000, guid: ec746d6d27bc6a843bcf1a22ee642337, type: 3}
     ps4:
       buttonSouth: {fileID: 0}
       buttonNorth: {fileID: 0}
@@ -473,6 +473,10 @@ MonoBehaviour:
       key_sprite: {fileID: 21300000, guid: cb5820f4c741e24418b49c0a6df74e5c, type: 3}
     - key_path: <Keyboard>/leftCtrl
       key_sprite: {fileID: 21300000, guid: 96e00c30a4aa45148af610e752010229, type: 3}
+    - key_path: <Mouse>/rightButton
+      key_sprite: {fileID: 21300000, guid: 129ec7ff87cc0194c821df885594c641, type: 3}
+    - key_path: <Mouse>/leftButton
+      key_sprite: {fileID: 21300000, guid: 67f1e916b0af81e498506dbe91ea713e, type: 3}
 --- !u!1 &5408549708358725802
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +652,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -660,7 +664,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -945,7 +949,6 @@ GameObject:
   - component: {fileID: 1391524734887632816}
   - component: {fileID: 4764107028756583513}
   - component: {fileID: 2223035840525896485}
-  - component: {fileID: 3720360073639988599}
   - component: {fileID: 4731167038469213033}
   - component: {fileID: 8437672431738759614}
   - component: {fileID: 5124869511050566797}
@@ -1044,19 +1047,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3720360073639988599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7648437265421108205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc1cf51f209e874fba25160403d9355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player_input: {fileID: 0}
 --- !u!225 &4731167038469213033
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1084,7 +1074,7 @@ MonoBehaviour:
   DisplayNow: 0
   Controller: {fileID: 2770560041224805851}
   Key_and_Mouse: {fileID: 860013995910884724}
-  rebind_save_load: {fileID: 0}
+  rebind_save_load: {fileID: 5124869511050566797}
 --- !u!114 &5124869511050566797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,6 +1341,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4168522202458225171, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4168522202458225171, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.InputSystem.Samples.RebindUI.RebindActionUI, Unity.InputSystem.RebindingUI
       objectReference: {fileID: 0}
@@ -1461,6 +1455,14 @@ PrefabInstance:
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_DisplayStringOptions
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_CancelButtons.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_CancelButtons.Array.data[21]
+      value: <Keyboard>/leftCtrl
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_RebindStartEvent.m_PersistentCalls.m_Calls.Array.size
@@ -2081,25 +2083,21 @@ PrefabInstance:
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
-    - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
-      propertyPath: key_config_controller
-      value: 
-      objectReference: {fileID: 3720360073639988599}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7e177675a5fc16248b6e164ef7a7f2a6, type: 3}
+      objectReference: {fileID: 21300000, guid: 7fd05b081bb903d4ca9c2f1526f8a6cc, type: 3}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_IsActive
@@ -2516,7 +2514,7 @@ PrefabInstance:
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0926007d3ba19b6458ed933632634268, type: 3}
+      objectReference: {fileID: 21300000, guid: 67f1e916b0af81e498506dbe91ea713e, type: 3}
     - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2876,25 +2874,21 @@ PrefabInstance:
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
-    - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
-      propertyPath: key_config_controller
-      value: 
-      objectReference: {fileID: 3720360073639988599}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cde7469096582e04897fae80dfc34fbe, type: 3}
+      objectReference: {fileID: 21300040, guid: e35b1509688e6294cad1ada6c91b7693, type: 3}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_IsActive
@@ -3284,25 +3278,21 @@ PrefabInstance:
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
-    - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
-      propertyPath: key_config_controller
-      value: 
-      objectReference: {fileID: 3720360073639988599}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4273c283a5e145a468dc60af5dcb46e7, type: 3}
+      objectReference: {fileID: 21300000, guid: feece0f605aa99f44acd9e29bccd832f, type: 3}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_IsActive
