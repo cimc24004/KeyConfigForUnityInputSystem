@@ -213,7 +213,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             var displayString = string.Empty;
             var deviceLayoutName = default(string);
             var controlPath = default(string);
-            Debug.Log("UpdateBindingDIsplayyyyyyyyyyyy");
             // Get display string from action.
             var action = m_Action?.action;
             if (action != null)
@@ -225,7 +224,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             // Set on label (if any).
             if (m_BindingText != null && displayString != "anyKey")
                 m_BindingText.text = displayString;
-
             // Give listeners a chance to configure UI in response.
             m_UpdateBindingUIEvent?.Invoke(this, displayString, deviceLayoutName, controlPath);
         }

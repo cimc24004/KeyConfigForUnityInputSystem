@@ -204,7 +204,7 @@ MonoBehaviour:
   key_or_pad: 1
   key: 
   controller_setting:
-    translate_mode_by_sprite: 0
+    translate_mode_by_sprite: 1
     xbox:
       buttonSouth: {fileID: 21300000, guid: f609c9b3b1675f947a865ec558b5ad90, type: 3}
       buttonNorth: {fileID: 21300000, guid: 17fd7d74524d4cc4ea612a100880d012, type: 3}
@@ -216,13 +216,13 @@ MonoBehaviour:
       rightTrigger: {fileID: 0}
       leftShoulder: {fileID: 0}
       rightShoulder: {fileID: 0}
-      dpad: {fileID: 0}
+      dpad: {fileID: 21300000, guid: bff5253ebc5a14f43b4bd8aa1d207855, type: 3}
       dpadUp: {fileID: 0}
       dpadDown: {fileID: 0}
       dpadLeft: {fileID: 0}
       dpadRight: {fileID: 0}
-      leftStick: {fileID: 0}
-      rightStick: {fileID: 0}
+      leftStick: {fileID: 21300000, guid: 7e177675a5fc16248b6e164ef7a7f2a6, type: 3}
+      rightStick: {fileID: 21300000, guid: 04f2711270cd5b64099d2ca2f99529de, type: 3}
       leftStickPress: {fileID: 0}
       rightStickPress: {fileID: 0}
     ps4:
@@ -438,15 +438,41 @@ MonoBehaviour:
       key_name: "\u2190"
     - key_path: <Keyboard>/downArrow
       key_name: "\u2193"
+    - key_path: <Keyboard>/space
+      key_name: "Space\u30AD\u30FC\u3067\u3059\u3002"
+    - key_path: <Keyboard>/w
+      key_name: "w\u3067\u3059\u3002"
+    - key_path: <Keyboard>/a
+      key_name: "a\u3067\u3059\u3002"
+    - key_path: <Keyboard>/s
+      key_name: "s\u3067\u3059\u3002"
+    - key_path: <Keyboard>/d
+      key_name: "d\u3067\u3059\u3002"
     translate_sprite_keys_list:
-    - key_path: <Keyboard>/upArrow
-      key_sprite: {fileID: 21300000, guid: f375a935d0c38f84d94844236012f26c, type: 3}
     - key_path: <Keyboard>/leftArrow
-      key_sprite: {fileID: 21300000, guid: 4cb9b89846007d142a4a78a190c2d6fe, type: 3}
+      key_sprite: {fileID: 21300000, guid: 7fe5a84c78535fe4390a0d18ae23f33d, type: 3}
     - key_path: <Keyboard>/rightArrow
-      key_sprite: {fileID: 21300000, guid: be71706bc979d5240bf156bfdfee0ae6, type: 3}
+      key_sprite: {fileID: 21300000, guid: 871d340c59edc5b4c8ec6bc3add678ff, type: 3}
+    - key_path: <Keyboard>/upArrow
+      key_sprite: {fileID: 21300000, guid: ea930dcc15600a34db9f56b93f59de5f, type: 3}
     - key_path: <Keyboard>/downArrow
-      key_sprite: {fileID: 21300000, guid: 5fc2490d4f2941f4ca46f33e329cf3d7, type: 3}
+      key_sprite: {fileID: 21300000, guid: ce7024df5753a0b438511164866d06dd, type: 3}
+    - key_path: <Keyboard>/w
+      key_sprite: {fileID: 21300000, guid: 565322d17c5db0b439d3a552a44a7a40, type: 3}
+    - key_path: <Keyboard>/a
+      key_sprite: {fileID: 21300000, guid: ae2b201d0e0367e49806623beb25cab3, type: 3}
+    - key_path: <Keyboard>/s
+      key_sprite: {fileID: 21300000, guid: ae3047b475fff5e439c09f0370187d14, type: 3}
+    - key_path: <Keyboard>/d
+      key_sprite: {fileID: 21300000, guid: 1febfb3d57441b64ca52eb64800d85fc, type: 3}
+    - key_path: <Keyboard>/tab
+      key_sprite: {fileID: 21300000, guid: 0bb5195b8c1c64e4dbc6b8aaf5389ce5, type: 3}
+    - key_path: <Keyboard>/space
+      key_sprite: {fileID: 21300000, guid: 0926007d3ba19b6458ed933632634268, type: 3}
+    - key_path: <Keyboard>/enter
+      key_sprite: {fileID: 21300000, guid: cb5820f4c741e24418b49c0a6df74e5c, type: 3}
+    - key_path: <Keyboard>/leftCtrl
+      key_sprite: {fileID: 21300000, guid: 96e00c30a4aa45148af610e752010229, type: 3}
 --- !u!1 &5408549708358725802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,10 +1334,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: W
       objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 565322d17c5db0b439d3a552a44a7a40, type: 3}
     - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1637,12 +1671,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: Left
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae2b201d0e0367e49806623beb25cab3, type: 3}
+    - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350822, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Name
       value: RebindUIPrefab (5)
@@ -1823,12 +1869,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: Down
+      value: S
+      objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae3047b475fff5e439c09f0370187d14, type: 3}
+    - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4168522202458225171, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.InputSystem.Samples.RebindUI.RebindActionUI, Unity.InputSystem.RebindingUI
@@ -2015,6 +2073,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: LS
       objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
@@ -2023,6 +2085,26 @@ PrefabInstance:
       propertyPath: key_config_controller
       value: 
       objectReference: {fileID: 3720360073639988599}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e177675a5fc16248b6e164ef7a7f2a6, type: 3}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350822, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Name
       value: RebindUIPrefab (1)
@@ -2203,12 +2285,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690190895482579582, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Text
-      value: Right
+      value: D
+      objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1febfb3d57441b64ca52eb64800d85fc, type: 3}
     - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2415,10 +2505,22 @@ PrefabInstance:
       propertyPath: m_Text
       value: Space
       objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0926007d3ba19b6458ed933632634268, type: 3}
+    - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4168522202458225171, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.InputSystem.Samples.RebindUI.RebindActionUI, Unity.InputSystem.RebindingUI
@@ -2766,6 +2868,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: A
       objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
@@ -2774,6 +2880,26 @@ PrefabInstance:
       propertyPath: key_config_controller
       value: 
       objectReference: {fileID: 3720360073639988599}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cde7469096582e04897fae80dfc34fbe, type: 3}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350822, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Name
       value: RebindUIPrefab
@@ -2952,10 +3078,22 @@ PrefabInstance:
       propertyPath: m_Text
       value: Tab
       objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
       objectReference: {fileID: 8437672431738759614}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0bb5195b8c1c64e4dbc6b8aaf5389ce5, type: 3}
+    - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350822, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Name
       value: RebindUIPrefab (6)
@@ -3138,6 +3276,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Start
       objectReference: {fileID: 0}
+    - target: {fileID: 731473608444823109, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1117081731648609439, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: key_config_ui
       value: 
@@ -3146,6 +3288,26 @@ PrefabInstance:
       propertyPath: key_config_controller
       value: 
       objectReference: {fileID: 3720360073639988599}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4273c283a5e145a468dc60af5dcb46e7, type: 3}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912200785017279613, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597095630339817163, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350822, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Name
       value: RebindUIPrefab (5)

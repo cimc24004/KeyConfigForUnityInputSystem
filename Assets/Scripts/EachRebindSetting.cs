@@ -40,7 +40,7 @@ public class EachRebindSetting : MonoBehaviour
             key_config_ui.rebind_save_load.Save();
         }
     }
-    public void OnUpdateUIEvent(RebindActionUI rebind_action_ui, string a, string b, string c)
+    public void OnUpdateUIEvent(RebindActionUI rebind_action_ui, string a, string b, string c, bool start_mode)
     {
         Debug.Log("RebindUpdateUIEvent");
     }

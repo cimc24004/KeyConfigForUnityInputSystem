@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Samples.RebindUI;
 using UnityEditor;
+#if UNITY_EDITOR
 [CustomEditor(typeof(KeyIconsSetting))]
 public class KeyIconsSettingEditor : Editor
 {
@@ -59,13 +60,11 @@ public class KeyIconsSettingEditor : Editor
             if (_target.key_setting.translate_mode_by_sprite == true)
             {
                 //Sprite Translate‚Ìê‡
-                EditorGUILayout.LabelField("Sprite‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B keyboard");
                 EditorGUILayout.PropertyField(key_translate_sprites_list_property);
             }
             else
             {
                 //Text Translate‚Ìê‡
-                EditorGUILayout.LabelField("Text‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢ keyboard");
                 EditorGUILayout.PropertyField(key_translate_text_list_property);
             }
         }
@@ -76,3 +75,4 @@ public class KeyIconsSettingEditor : Editor
         }
     }
 }
+#endif

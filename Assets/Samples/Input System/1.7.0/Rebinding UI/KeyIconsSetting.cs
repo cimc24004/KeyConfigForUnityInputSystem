@@ -15,6 +15,7 @@ using UnityEngine.InputSystem.Samples.RebindUI;
     /// of a binding should be refreshed. It then checks whether we have an icon for the current binding
     /// and if so, replaces the default text display with an icon.
     /// </summary>
+[ExecuteAlways]
 public class KeyIconsSetting : MonoBehaviour
 {
     public enum GamePadOrKeyboard {
@@ -25,7 +26,17 @@ public class KeyIconsSetting : MonoBehaviour
     public string key;
     public ControllerSetting controller_setting;
     public KeySetting key_setting;
-    protected void OnEnable()
+    #if UNITY_EDITOR
+    void OnValidate()
+        {
+            var rebindUIComponents = transform.GetComponentsInChildren<RebindActionUI>();
+            foreach (var component in rebindUIComponents)
+            {
+                component.UpdateBindingDisplay();
+            }
+        }
+    #endif
+    void OnEnable()
     {
         // Hook into all updateBindingUIEvents on all RebindActionUI components in our hierarchy.
         var rebindUIComponents = transform.GetComponentsInChildren<RebindActionUI>();
@@ -40,7 +51,6 @@ public class KeyIconsSetting : MonoBehaviour
     {
         if (string.IsNullOrEmpty(deviceLayoutName) || string.IsNullOrEmpty(controlPath))
             return;
-
         var icon = default(Sprite);
         if (controller_setting.translate_mode_by_sprite)
         {
@@ -48,27 +58,22 @@ public class KeyIconsSetting : MonoBehaviour
                 icon = controller_setting.ps4.GetSprite(controlPath);
             else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Gamepad"))
                 icon = controller_setting.xbox.GetSprite(controlPath);
-            else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Keyboard"))
-            {
-
-                //icon = key_setting.translate_sprite_keys_list[Key]
-            }
         }
 
 
         var textComponent = component.bindingText;
-        Debug.Log("OnUpdateBindingDisplayFromKeyIconsSetting.cs");
 
         var bindingId = new Guid(component.bindingId);
         InputAction action;
         action = component.actionReference.action;
         int bindingIndex = action.bindings.IndexOf(x => x.id == bindingId);
-        var overridePath = action.bindings[bindingIndex].overridePath;
+        var overridePath = "";
+        overridePath = action.bindings[bindingIndex].overridePath;
+        if (String.IsNullOrEmpty(overridePath)) overridePath = action.bindings[bindingIndex].path;
 
         // Grab Image component.
         var imageGO = component.transform.Find("ActionBindingIcon");
         var imageComponent = imageGO.GetComponent<Image>();
-
         //ここはKeyConfigText翻訳の設定をするところです。
         if (key_or_pad == KeyIconsSetting.GamePadOrKeyboard.gamepad)
         {
@@ -77,25 +82,40 @@ public class KeyIconsSetting : MonoBehaviour
                 KeyIconsSetting.translate_text_lists translate_text_list = controller_setting.translate_text_keys_list.Find(x => x.key_path == overridePath);
                 if (translate_text_list != null)
                 {
+                    if (translate_text_list.key_name == "") return;
                     textComponent.text = translate_text_list.key_name;
                 }
             }
 
         }
-        else if(key_or_pad == KeyIconsSetting.GamePadOrKeyboard.keyboard && !key_setting.translate_mode_by_sprite)
+        else if(key_or_pad == KeyIconsSetting.GamePadOrKeyboard.keyboard)
         {
             if (!key_setting.translate_mode_by_sprite)
             {
                 KeyIconsSetting.translate_text_lists translate_text_list = key_setting.translate_text_keys_list.Find(x => x.key_path == overridePath);
                 if (translate_text_list != null)
                 {
-                    textComponent.text = translate_text_list.key_name;
+                    if(!String.IsNullOrEmpty(translate_text_list.key_name))
+                    {
+                        textComponent.text = translate_text_list.key_name;
+                    }
+                    else
+                    {
+                    }
                 }
             }
             else
             {
                 KeyIconsSetting.translate_sprite_lists translate_sprite_keys_list = key_setting.translate_sprite_keys_list.Find(x => x.key_path == overridePath);
-                icon = translate_sprite_keys_list.key_sprite;
+                if(translate_sprite_keys_list != null)
+                {
+                    Sprite sprite = translate_sprite_keys_list.key_sprite;
+                    if (sprite != null)
+                    {
+                        icon = sprite;
+                    }
+                }
+
             }
 
         }
@@ -174,6 +194,7 @@ public class KeyIconsSetting : MonoBehaviour
         public List<translate_text_lists> translate_text_keys_list;
         [Header("key_pathにはキーのpathを。 key_spriteには翻訳先画像を。")]
         public List<translate_sprite_lists> translate_sprite_keys_list;
+
     }
     [Serializable]
     public class translate_text_lists
